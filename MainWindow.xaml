@@ -5,21 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Serb_Diana_Lab2"
         mc:Ignorable="d"
-        Title="Virtual Doughnuts Factory" Height="444" Width="811" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+        Title="Virtual Doughnuts Factory" Height="444" Width="811" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Loaded="frmMain_Loaded">
 
     <Grid RenderTransformOrigin="0.497,0.492" Margin="0,0,19,-5" >
         <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="131" Margin="0,26,0,0">
             <MenuItem Header="File">
-                <MenuItem Header="Exit"/>
+                <MenuItem x:Name="exitToolStripMenuItem" Header="Exit" Click="exitToolStripMenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="Doughnuts">
                 <MenuItem Header="Make">
                     <MenuItem Header="Raised">
-                        <MenuItem x:Name="glazedMenuItem" Header="Glazed"/>
-                        <MenuItem x:Name="sugarMenuItem" Header="Sugar"/>
+                        <MenuItem x:Name="glazedToolStripMenuItem" Header="Glazed" IsCheckable="True" Click="glazedToolStripMenuItem_Click"/>
+                        <MenuItem x:Name="sugarToolStripMenuItem" Header="Sugar" IsCheckable="True" Click="sugarToolStripMenuItem_Click"/>
                     </MenuItem>
                     <MenuItem Header="Filled"/>
                 </MenuItem>
+                <MenuItem x:Name="stopToolStripMenuItem" Header="Stop" Click="stopToolStripMenuItem_Click"/>
             </MenuItem>
         </Menu>
 
@@ -46,7 +47,7 @@
         <GroupBox x:Name="gbSale" Header="Current Sale" Margin="46,209,40,20" FontWeight="Bold"/>
         <Canvas Margin="60,241,53,20">
             <Label x:Name="lblQuantity" Content="Quantity" Canvas.Left="10" Canvas.Top="10"/>
-            <TextBox x:Name="txtQuantity" Text="0" TextWrapping="Wrap" Width="40" Height="23" Canvas.Left="78" Canvas.Top="11"/>
+            <TextBox x:Name="txtQuantity" Text="0" TextWrapping="Wrap" Width="40" Height="23" Canvas.Left="78" Canvas.Top="11" KeyUp="txtQuantity_KeyUp"/>
             <Label x:Name="lblType" Content="Type" Canvas.Left="155" Canvas.Top="10"/>
             <ComboBox x:Name="cmbType" Width="141" Canvas.Left="202" Canvas.Top="12"/>
             <Label x:Name="lblPrice" Content="Price" Canvas.Left="383" Canvas.Top="10"/>
